@@ -159,6 +159,7 @@ class ManagerController extends Controller
     public function progressIndex()
     {
         //從資料庫調資料 app/Models/Product
+        //processes是Product的方法
         $products = Product::with(['processes.processType', 'processes.worker'])->get();
         //把資料$products丟到前端 views/manager/progress
         return view('manager.progress', compact('products'));
